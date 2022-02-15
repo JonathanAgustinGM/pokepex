@@ -17,6 +17,7 @@ public struct Pokemon: Decodable {
     var base_experience: Int? = 0
     var sprites: Sprites?
     var types: Array<Types> = []
+    var species: Species?
 }
 
 public struct Sprites: Decodable {
@@ -28,6 +29,11 @@ public struct Sprites: Decodable {
     var front_female: String? = ""
     var front_shiny: String? = ""
     var front_shiny_female: String? = ""
+}
+
+public struct Species: Decodable {
+    var name: String? = ""
+    var url: String? = ""
 }
 
 // public struct types: Decodable {
@@ -48,4 +54,19 @@ public struct Types: Decodable {
 public struct PokeType: Decodable {
     var name: String? = ""
     var url: String? = ""
+}
+
+public struct PokemonRow: Codable {
+    let id: Int?
+    let name: String?
+
+    public init(id arg0: Int?, name arg1: String?) {
+        id = arg0
+        name = arg1
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id = "identificador"
+        case name = "nombre"
+    }
 }
