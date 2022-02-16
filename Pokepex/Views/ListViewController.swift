@@ -44,7 +44,7 @@ extension ListViewController: UICollectionViewDelegate {
         DataNet.shared.getPokeID(id: indexPath.row + 1) { [self] _ in
             performSegue(withIdentifier: "ListToData", sender: self)
         } failure: { error in
-            print(error)
+            print(error!)
         }
     }
 
