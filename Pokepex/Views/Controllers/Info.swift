@@ -7,6 +7,7 @@
 
 import Kingfisher
 import UIKit
+import CoreMIDI
 
 class InfoPoke: UIViewController {
     var pokemonOk = DataNet.shared.pokem
@@ -24,7 +25,7 @@ class InfoPoke: UIViewController {
     let DataTipos = DataNet.shared.pokem.types.compactMap { PokeType in
         PokeType.type?.name!.capitalized
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pokeanimated.kf.setImage(with: URL(string: "http://24.media.tumblr.com/2980aff6917398465169d89c89daf4a4/tumblr_mt166vEE9E1sgqvzxo1_500.gif"))

@@ -27,6 +27,11 @@
 		C7D6424327B38D1A0064EFEB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6424227B38D1A0064EFEB /* ListViewController.swift */; };
 		C7D6424927B395050064EFEB /* CollectionOfPokes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D6424727B395050064EFEB /* CollectionOfPokes.swift */; };
 		C7D6424A27B395050064EFEB /* CollectionOfPokesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7D6424827B395050064EFEB /* CollectionOfPokesCell.xib */; };
+		C7EF260B27BF52DC0069D143 /* SpeciesNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EF260A27BF52DC0069D143 /* SpeciesNet.swift */; };
+		C7EF260D27BF54A90069D143 /* Specie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EF260C27BF54A90069D143 /* Specie.swift */; };
+		C7EF261027BF6D3E0069D143 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EF260E27BF6D3E0069D143 /* DescriptionCell.swift */; };
+		C7EF261127BF6D3E0069D143 /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7EF260F27BF6D3E0069D143 /* DescriptionCell.xib */; };
+		C7EF261327BF70FF0069D143 /* Pokedexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EF261227BF70FF0069D143 /* Pokedexes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		C7D6424227B38D1A0064EFEB /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C7D6424727B395050064EFEB /* CollectionOfPokes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionOfPokes.swift; sourceTree = "<group>"; };
 		C7D6424827B395050064EFEB /* CollectionOfPokesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionOfPokesCell.xib; sourceTree = "<group>"; };
+		C7EF260A27BF52DC0069D143 /* SpeciesNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesNet.swift; sourceTree = "<group>"; };
+		C7EF260C27BF54A90069D143 /* Specie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specie.swift; sourceTree = "<group>"; };
+		C7EF260E27BF6D3E0069D143 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		C7EF260F27BF6D3E0069D143 /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		C7EF261227BF70FF0069D143 /* Pokedexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedexes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +97,6 @@
 				C7D6424627B392E60064EFEB /* Structures */,
 				C7D6424527B3929D0064EFEB /* NetRequests */,
 				C7D6424427B3925B0064EFEB /* Views */,
-				C7938B1427ACA8B7003DDFB8 /* AppDelegate.swift */,
-				C7938B1627ACA8B7003DDFB8 /* SceneDelegate.swift */,
 				C7938B1D27ACA8B8003DDFB8 /* pngegg.png */,
 				C711108127B660A6000E610F /* PokePANT.jpg */,
 				C7938B2227ACA8B8003DDFB8 /* Info.plist */,
@@ -101,14 +109,11 @@
 		C7D6424427B3925B0064EFEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C7EF261427BF715F0069D143 /* Controllers */,
 				C7938B1F27ACA8B8003DDFB8 /* LaunchScreen.storyboard */,
 				C7938B1A27ACA8B7003DDFB8 /* Main.storyboard */,
-				C7938B1827ACA8B7003DDFB8 /* ViewController.swift */,
-				C7938B2A27ACBB27003DDFB8 /* Info.swift */,
-				C7D6424227B38D1A0064EFEB /* ListViewController.swift */,
-				C7C306DC27B2246700D87C33 /* PokemonRowView.swift */,
-				C7D6424727B395050064EFEB /* CollectionOfPokes.swift */,
 				C7D6424827B395050064EFEB /* CollectionOfPokesCell.xib */,
+				C7EF260F27BF6D3E0069D143 /* DescriptionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				C7C306E027B2499F00D87C33 /* DatesOnListNet.swift */,
 				C7938B3127ACC7FC003DDFB8 /* DataNet.swift */,
+				C7EF260A27BF52DC0069D143 /* SpeciesNet.swift */,
 			);
 			path = NetRequests;
 			sourceTree = "<group>";
@@ -127,8 +133,25 @@
 			children = (
 				C7938B2C27ACC0A1003DDFB8 /* PokesNet.swift */,
 				C7C306DE27B23D6C00D87C33 /* ListOfAll.swift */,
+				C7EF260C27BF54A90069D143 /* Specie.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		C7EF261427BF715F0069D143 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7938B1627ACA8B7003DDFB8 /* SceneDelegate.swift */,
+				C7938B1427ACA8B7003DDFB8 /* AppDelegate.swift */,
+				C7C306DC27B2246700D87C33 /* PokemonRowView.swift */,
+				C7D6424227B38D1A0064EFEB /* ListViewController.swift */,
+				C7D6424727B395050064EFEB /* CollectionOfPokes.swift */,
+				C7938B1827ACA8B7003DDFB8 /* ViewController.swift */,
+				C7EF261227BF70FF0069D143 /* Pokedexes.swift */,
+				C7EF260E27BF6D3E0069D143 /* DescriptionCell.swift */,
+				C7938B2A27ACBB27003DDFB8 /* Info.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EF261127BF6D3E0069D143 /* DescriptionCell.xib in Resources */,
 				C7938B2127ACA8B8003DDFB8 /* LaunchScreen.storyboard in Resources */,
 				C711108227B660A6000E610F /* PokePANT.jpg in Resources */,
 				C72D008927BB46720006F0BB /* Images.xcassets in Resources */,
@@ -217,13 +241,17 @@
 				C7938B1927ACA8B7003DDFB8 /* ViewController.swift in Sources */,
 				C7C306DF27B23D6C00D87C33 /* ListOfAll.swift in Sources */,
 				C7938B2B27ACBB27003DDFB8 /* Info.swift in Sources */,
+				C7EF260D27BF54A90069D143 /* Specie.swift in Sources */,
+				C7EF261327BF70FF0069D143 /* Pokedexes.swift in Sources */,
 				C7D6424927B395050064EFEB /* CollectionOfPokes.swift in Sources */,
 				C7C306DD27B2246700D87C33 /* PokemonRowView.swift in Sources */,
 				C7938B2D27ACC0A1003DDFB8 /* PokesNet.swift in Sources */,
 				C7938B3227ACC7FC003DDFB8 /* DataNet.swift in Sources */,
+				C7EF261027BF6D3E0069D143 /* DescriptionCell.swift in Sources */,
 				C7938B1527ACA8B7003DDFB8 /* AppDelegate.swift in Sources */,
 				C7C306E127B2499F00D87C33 /* DatesOnListNet.swift in Sources */,
 				C7D6424327B38D1A0064EFEB /* ListViewController.swift in Sources */,
+				C7EF260B27BF52DC0069D143 /* SpeciesNet.swift in Sources */,
 				C7938B1727ACA8B7003DDFB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

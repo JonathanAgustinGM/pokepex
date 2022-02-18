@@ -65,6 +65,12 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let PosicionPdx: String = NumeroPoke.text {
             let IDD: Int = Int(PosicionPdx) ?? 1
+            SpeciesNet.shared.getSpeciepokemon(id: IDD) { pokespecie in
+                //print(pokespecie)
+            } failure: { error in
+                print("error")
+            }
+
             DataNet.shared.getPokeID(id: IDD) { [self] poke in
                 BuscadoPoke.textColor = .black
                 BuscadoPoke.text = "¡Tu pokemon es \(poke.name!.capitalized)!"

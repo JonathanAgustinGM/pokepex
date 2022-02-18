@@ -46,6 +46,10 @@ extension ListViewController: UICollectionViewDelegate {
         } failure: { error in
             print(error!)
         }
+        SpeciesNet.shared.getSpeciepokemon(id: indexPath.row + 1) { pokespecie in
+        } failure: { error in
+            print(error!)        }
+
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) { }
