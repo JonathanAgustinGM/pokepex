@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C711108227B660A6000E610F /* PokePANT.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C711108127B660A6000E610F /* PokePANT.jpg */; };
 		C711108527B6623A000E610F /* 156-1564817_master-ball-master-ball-pokemon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C711108427B6623A000E610F /* 156-1564817_master-ball-master-ball-pokemon-icon.png */; };
+		C72A421627C6026D00A61476 /* HeaderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72A421427C6026D00A61476 /* HeaderList.swift */; };
+		C72A421727C6026D00A61476 /* HeaderList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72A421527C6026D00A61476 /* HeaderList.xib */; };
 		C72D008927BB46720006F0BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72D008827BB46720006F0BB /* Images.xcassets */; };
 		C7938B1527ACA8B7003DDFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7938B1427ACA8B7003DDFB8 /* AppDelegate.swift */; };
 		C7938B1727ACA8B7003DDFB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7938B1627ACA8B7003DDFB8 /* SceneDelegate.swift */; };
@@ -35,8 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C711108127B660A6000E610F /* PokePANT.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PokePANT.jpg; sourceTree = SOURCE_ROOT; };
 		C711108427B6623A000E610F /* 156-1564817_master-ball-master-ball-pokemon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "156-1564817_master-ball-master-ball-pokemon-icon.png"; sourceTree = SOURCE_ROOT; };
+		C72A421427C6026D00A61476 /* HeaderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderList.swift; sourceTree = "<group>"; };
+		C72A421527C6026D00A61476 /* HeaderList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderList.xib; sourceTree = "<group>"; };
 		C72D008827BB46720006F0BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7938B1127ACA8B7003DDFB8 /* Pokepex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokepex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7938B1427ACA8B7003DDFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C72A421827C6298600A61476 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				C7D6424827B395050064EFEB /* CollectionOfPokesCell.xib */,
+				C7938B1A27ACA8B7003DDFB8 /* Main.storyboard */,
+				C7938B1F27ACA8B8003DDFB8 /* LaunchScreen.storyboard */,
+				C7EF260F27BF6D3E0069D143 /* DescriptionCell.xib */,
+				C72A421527C6026D00A61476 /* HeaderList.xib */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
 		C7938B0827ACA8B7003DDFB8 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +112,6 @@
 				C7D6424527B3929D0064EFEB /* NetRequests */,
 				C7D6424427B3925B0064EFEB /* Views */,
 				C7938B1D27ACA8B8003DDFB8 /* pngegg.png */,
-				C711108127B660A6000E610F /* PokePANT.jpg */,
 				C7938B2227ACA8B8003DDFB8 /* Info.plist */,
 				C72D008827BB46720006F0BB /* Images.xcassets */,
 				C711108427B6623A000E610F /* 156-1564817_master-ball-master-ball-pokemon-icon.png */,
@@ -109,11 +122,8 @@
 		C7D6424427B3925B0064EFEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C72A421827C6298600A61476 /* XIB */,
 				C7EF261427BF715F0069D143 /* Controllers */,
-				C7938B1F27ACA8B8003DDFB8 /* LaunchScreen.storyboard */,
-				C7938B1A27ACA8B7003DDFB8 /* Main.storyboard */,
-				C7D6424827B395050064EFEB /* CollectionOfPokesCell.xib */,
-				C7EF260F27BF6D3E0069D143 /* DescriptionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +159,7 @@
 				C7938B1827ACA8B7003DDFB8 /* ViewController.swift */,
 				C7EF261227BF70FF0069D143 /* Pokedexes.swift */,
 				C7EF260E27BF6D3E0069D143 /* DescriptionCell.swift */,
+				C72A421427C6026D00A61476 /* HeaderList.swift */,
 				C7938B2A27ACBB27003DDFB8 /* Info.swift */,
 			);
 			path = Controllers;
@@ -222,7 +233,7 @@
 			files = (
 				C7EF261127BF6D3E0069D143 /* DescriptionCell.xib in Resources */,
 				C7938B2127ACA8B8003DDFB8 /* LaunchScreen.storyboard in Resources */,
-				C711108227B660A6000E610F /* PokePANT.jpg in Resources */,
+				C72A421727C6026D00A61476 /* HeaderList.xib in Resources */,
 				C72D008927BB46720006F0BB /* Images.xcassets in Resources */,
 				C7D6424A27B395050064EFEB /* CollectionOfPokesCell.xib in Resources */,
 				C7938B1E27ACA8B8003DDFB8 /* pngegg.png in Resources */,
@@ -238,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72A421627C6026D00A61476 /* HeaderList.swift in Sources */,
 				C7938B1927ACA8B7003DDFB8 /* ViewController.swift in Sources */,
 				C7C306DF27B23D6C00D87C33 /* ListOfAll.swift in Sources */,
 				C7938B2B27ACBB27003DDFB8 /* Info.swift in Sources */,

@@ -42,14 +42,16 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         DataNet.shared.getPokeID(id: indexPath.row + 1) { [self] _ in
-            performSegue(withIdentifier: "ListToData", sender: self)
+            SpeciesNet.shared.getSpeciepokemon(id: indexPath.row + 1) { _ in
+                SpeciesNet.shared.IsLegendary = SpeciesNet.shared.pokesp.is_legendary!
+                performSegue(withIdentifier: "ListToData", sender: self)
+            } failure: { error in
+                print(error!)
+            }
+
         } failure: { error in
             print(error!)
         }
-        SpeciesNet.shared.getSpeciepokemon(id: indexPath.row + 1) { pokespecie in
-        } failure: { error in
-            print(error!)        }
-
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) { }
