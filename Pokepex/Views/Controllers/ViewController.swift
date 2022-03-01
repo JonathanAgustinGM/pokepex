@@ -72,9 +72,15 @@ extension ViewController: UITextFieldDelegate {
             }
 
             DataNet.shared.getPokeID(id: IDD) { [self] poke in
+                SpeciesNet.shared.getSpeciepokemon(id: IDD) { _ in
+                    // print(pokespecie)
+                    performSegue(withIdentifier: "InfoSegue", sender: UIButton.self)
+                } failure: { _ in
+                    print("error")
+                }
+
                 BuscadoPoke.textColor = .black
                 BuscadoPoke.text = "¡Tu pokemon es \(poke.name!.capitalized)!"
-                performSegue(withIdentifier: "InfoSegue", sender: UIButton.self)
             } failure: { _ in
                 self.BuscadoPoke.textColor = .red
                 self.BuscadoPoke.text = "Este pokemon aún no \n existe ;)"

@@ -181,37 +181,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhA-NM-pGF">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.51933885759999998" green="0.83000329319999999" blue="0.89349094559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="c4R-ij-VpU">
-                                    <size key="itemSize" width="349" height="90"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hPb-T1-Ii2">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Busca un pokemon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6cA-Vu-Jb5">
+                                <rect key="frame" x="10" y="10" width="300" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q0w-Kh-6lY"/>
                         <color key="backgroundColor" red="0.51933885759999998" green="0.83000329319999999" blue="0.89349094559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6cA-Vu-Jb5" firstAttribute="leading" secondItem="prL-dj-o1P" secondAttribute="leading" constant="10" id="58d-Fz-6zk"/>
+                            <constraint firstItem="mhA-NM-pGF" firstAttribute="top" secondItem="6cA-Vu-Jb5" secondAttribute="bottom" constant="20" id="HQ8-Gf-Wyt"/>
+                            <constraint firstAttribute="trailing" secondItem="6cA-Vu-Jb5" secondAttribute="trailing" constant="10" id="NPA-kx-w6Y"/>
                             <constraint firstItem="mhA-NM-pGF" firstAttribute="centerX" secondItem="prL-dj-o1P" secondAttribute="centerX" id="Qr1-a6-XSx"/>
                             <constraint firstItem="mhA-NM-pGF" firstAttribute="trailing" secondItem="Q0w-Kh-6lY" secondAttribute="trailing" id="di7-ma-jfu"/>
                             <constraint firstItem="mhA-NM-pGF" firstAttribute="leading" secondItem="Q0w-Kh-6lY" secondAttribute="leading" id="g4x-pS-6A9"/>
+                            <constraint firstItem="6cA-Vu-Jb5" firstAttribute="top" secondItem="prL-dj-o1P" secondAttribute="top" constant="10" id="jWQ-9A-g64"/>
                             <constraint firstItem="mhA-NM-pGF" firstAttribute="bottom" secondItem="Q0w-Kh-6lY" secondAttribute="bottom" id="kvO-aO-vKj"/>
-                            <constraint firstItem="mhA-NM-pGF" firstAttribute="top" secondItem="Q0w-Kh-6lY" secondAttribute="top" id="nmn-7K-8d2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mcE-T1-uFT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
                     <connections>
                         <outlet property="ListColeccion" destination="mhA-NM-pGF" id="f6Q-3t-2jO"/>
+                        <outlet property="TextFieldNombrePoke" destination="6cA-Vu-Jb5" id="ov9-9c-1Cw"/>
                         <segue destination="j1i-nf-be4" kind="showDetail" identifier="ListToData" id="Naf-hP-bTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Req-bl-tTg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="-393"/>
+            <point key="canvasLocation" x="1065" y="-394.01408450704224"/>
         </scene>
         <!--Info Poke-->
         <scene sceneID="gkX-NG-tVg">
@@ -462,7 +473,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hJR-gC-H0H"/>
+        <segue reference="Naf-hP-bTh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
