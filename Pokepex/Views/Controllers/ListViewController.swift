@@ -5,9 +5,11 @@
 //  Created by Jordy Gracia on 08/02/22.
 // ui
 
+import AVFAudio
 import UIKit
+
 class ListViewController: UIViewController {
-    @IBOutlet weak var TextFieldNombrePoke: UITextField!
+    @IBOutlet var TextFieldNombrePoke: UITextField!
     @IBOutlet var ListColeccion: UICollectionView!
     let AnchoCelda = UIScreen.main.bounds.width
     let AltoCelda = UIScreen.main.bounds.height / 8
@@ -45,9 +47,11 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        playeffect(sound: "pin")
         DataNet.shared.getPokeID(id: ListaFiltrada![indexPath.row].entry_number!) { [self] _ in
             SpeciesNet.shared.getSpeciepokemon(id: ListaFiltrada![indexPath.row].entry_number!) { _ in
                 SpeciesNet.shared.IsLegendary = SpeciesNet.shared.pokesp.is_legendary!
+                Reproductor.shared.MainPlayer?.stop()
                 performSegue(withIdentifier: "ListToData", sender: self)
             } failure: { error in
                 print(error!)
@@ -60,21 +64,27 @@ extension ListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) { }
 }
-extension ListViewController: UITextFieldDelegate{
+
+extension ListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
+
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if TextFieldNombrePoke.text != ""{
+        playeffect(sound: "pin")
+        if TextFieldNombrePoke.text != "" {
             let LetrasNom = TextFieldNombrePoke.text!
-            let ListaP = ListaPokeCollection.pokemon_entries?.filter({$0.pokemon_species!.name!.contains(LetrasNom.lowercased())})
-  ListaFiltrada = ListaP
+            let ListaP = ListaPokeCollection.pokemon_entries?.filter({ $0.pokemon_species!.name!.contains(LetrasNom.lowercased()) })
+            ListaFiltrada = ListaP
             ListColeccion.reloadData()
-        
-    }
-        else {
+        } else {
             ListaFiltrada = ListaPokeCollection.pokemon_entries!
+            ListColeccion.reloadData()
         }
-            
-}
+    }
+
+    func playeffect(sound: String) {
+        EfectosSonido.shared.ActionSound(name: sound)
+        EfectosSonido.shared.EfectPlayer?.play()
+    }
 }

@@ -5,11 +5,13 @@
 //  Created by Jordy Gracia on 03/02/22.
 //
 
+import AVFAudio
 import CoreMIDI
 import Kingfisher
 import UIKit
 
 class InfoPoke: UIViewController {
+    var player: AVAudioPlayer?
     var pokemonOk = DataNet.shared.pokem
     var typesString = ""
     private var MasteBallUrl = "https://toppng.com/uploads/preview/okegreatultramaster-ball-super-mario-world-boo-sprite-11562983716xog8m5pbnj.png"
@@ -31,13 +33,26 @@ class InfoPoke: UIViewController {
         PokeType.type?.name!.capitalized
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        Reproductor.shared.reproducir(name: "pokesong")
+        let Music = Reproductor.shared.MainPlayer!
+        Music.play()
+        Music.volume = 0.4
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let Music = Reproductor.shared.MainPlayer!
+        if Music.isPlaying == false {
+            Music.play()
+        }
         let LegendaryStat = SpeciesNet.shared.IsLegendary
         print(LegendaryStat)
         if LegendaryStat == true {
             LegendaryImage.isHidden = false
             LegendaryImage.kf.setImage(with: URL(string: "https://www.thegrandgeekgathering.com/wp-content/uploads/2019/11/Legendary-Pok%C3%A9mon-Logo.png"))
+            playeffect(sound: "legendary")
+            EfectosSonido.shared.EfectPlayer?.volume = 0.1
         } else {
             LegendaryImage.isHidden = true
         }
@@ -69,12 +84,18 @@ class InfoPoke: UIViewController {
         FotoPkdx.kf.setImage(with: URL(string: DataNet.shared.pokem.sprites!.front_default!))
         ShinyButton.isHidden = false
         ReturnToNormal.isHidden = true
+        playeffect(sound: "pin")
+    }
+
+    @IBAction func VerDescripcion(_ sender: Any) {
+        playeffect(sound: "descrip")
     }
 
     @IBAction func ChangeToShinySprite(_ sender: Any) {
         FotoPkdx.kf.setImage(with: URL(string: DataNet.shared.pokem.sprites!.front_shiny!))
         ReturnToNormal.isHidden = false
         ShinyButton.isHidden = true
+        playeffect(sound: "pin")
 
         /* override func viewDidAppear(_ animated: Bool)
               super.viewDidAppear(animated)
@@ -82,26 +103,28 @@ class InfoPoke: UIViewController {
 
         // func setup(_ pokemon: Pokemon)
     }
+
     @IBAction func PreviousPokeSwipe(_ sender: Any) {
+        playeffect(sound: "swipe")
         let id = (DataNet.shared.pokem.id!) - 1
-        DataNet.shared.getPokeID(id: id) { poke in
-            SpeciesNet.shared.getSpeciepokemon(id: id) { pokespecie in
+        DataNet.shared.getPokeID(id: id) { _ in
+            SpeciesNet.shared.getSpeciepokemon(id: id) { _ in
                 SpeciesNet.shared.IsLegendary = SpeciesNet.shared.pokesp.is_legendary!
                 self.viewDidLoad()
             } failure: { error in
                 print(error!)
             }
 
-            
         } failure: { error in
             print(error!)
         }
-
     }
+
     @IBAction func NextPokeSwipe(_ sender: Any) {
+        playeffect(sound: "swipe")
         let id = (DataNet.shared.pokem.id!) + 1
-        DataNet.shared.getPokeID(id: id) { poke in
-            SpeciesNet.shared.getSpeciepokemon(id: id) { pokespecie in
+        DataNet.shared.getPokeID(id: id) { _ in
+            SpeciesNet.shared.getSpeciepokemon(id: id) { _ in
                 SpeciesNet.shared.IsLegendary = SpeciesNet.shared.pokesp.is_legendary!
                 self.viewDidLoad()
             } failure: { error in
@@ -111,5 +134,19 @@ class InfoPoke: UIViewController {
         } failure: { error in
             print(error!)
         }
+    }
+}
+
+extension InfoPoke {
+    override func viewWillDisappear(_ animated: Bool) {
+        Reproductor.shared.reproducir(name: "Title")
+        let Music = Reproductor.shared.MainPlayer!
+        Music.play()
+        Music.volume = 0.4
+    }
+
+    func playeffect(sound: String) {
+        EfectosSonido.shared.ActionSound(name: sound)
+        EfectosSonido.shared.EfectPlayer?.play()
     }
 }

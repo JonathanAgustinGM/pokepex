@@ -5,6 +5,7 @@
 //  Created by Jordy Gracia on 03/02/22.
 //
 
+import AVFAudio
 import Kingfisher
 import UIKit
 
@@ -21,10 +22,9 @@ class ViewController: UIViewController, DataNetDelegate, DatesOfListDelegate {
     @IBOutlet var BuscadoPoke: UILabel!
     @IBOutlet var SearchPoke: UIButton!
     @IBOutlet var ViewListOfPokes: UIButton!
-    var IDList = 1
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
         PokedexMainImage.kf.setImage(with: URL(string: "https://cdn76.picsart.com/209915339005202.gif"))
         NumeroPoke.delegate = self
         DataNet.shared.delegate = self
@@ -37,8 +37,11 @@ class ViewController: UIViewController, DataNetDelegate, DatesOfListDelegate {
     }
 
     @IBAction func GetListOfPokes(_ sender: Any) {
+        // Reproductor.shared.MainPlayer?.setVolume(0.1, fadeDuration: 2)
+        playeffect(sound: "pin")
         DatesOfList.shared.gotPokemonList { [self] _ in
             performSegue(withIdentifier: "ListaSegue", sender: UIButton.self)
+
         } failure: { _ in
             print(DatesOfList.shared.ListaPoke)
         }
@@ -74,6 +77,8 @@ extension ViewController: UITextFieldDelegate {
             DataNet.shared.getPokeID(id: IDD) { [self] poke in
                 SpeciesNet.shared.getSpeciepokemon(id: IDD) { _ in
                     // print(pokespecie)
+                    playeffect(sound: "Succes")
+                    sleep(2)
                     performSegue(withIdentifier: "InfoSegue", sender: UIButton.self)
                 } failure: { _ in
                     print("error")
@@ -83,8 +88,26 @@ extension ViewController: UITextFieldDelegate {
                 BuscadoPoke.text = "¡Tu pokemon es \(poke.name!.capitalized)!"
             } failure: { _ in
                 self.BuscadoPoke.textColor = .red
-                self.BuscadoPoke.text = "Este pokemon aún no \n existe ;)"
+                self.BuscadoPoke.text = "Este pokemon aún no \n existe 🥺"
+                self.playeffect(sound: "failure")
             }
         }
+    }
+}
+
+extension ViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        Reproductor.shared.reproducir(name: "Title")
+        Reproductor.shared.MainPlayer?.play()
+        Reproductor.shared.MainPlayer?.volume = 0.4
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        Reproductor.shared.MainPlayer?.stop()
+    }
+
+    func playeffect(sound: String) {
+        EfectosSonido.shared.ActionSound(name: sound)
+        EfectosSonido.shared.EfectPlayer?.play()
     }
 }
