@@ -14,6 +14,7 @@ final class SpeciesNet {
     private let StatOk = 200 ... 209
     var pokesp = Pokespecies()
     var IsLegendary = false
+    var IsMythical = false
     
     func getSpeciepokemon(
         id: Int,
@@ -25,6 +26,7 @@ final class SpeciesNet {
         if let pokespecie = response.value {
             SpeciesNet.shared.pokesp = pokespecie
             SpeciesNet.shared.IsLegendary = SpeciesNet.shared.pokesp.is_legendary!
+            SpeciesNet.shared.IsMythical = SpeciesNet.shared.pokesp.is_mythical!
             succes(pokespecie)
         } else {
             failure(response.error)
